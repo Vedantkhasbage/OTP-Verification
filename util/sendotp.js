@@ -20,10 +20,14 @@ module.exports=async(email,subject,text)=>{
             from:process.env.USER,
             to:email,
             subject:subject,
-            text:`VERIFY YOUR OTP ${text}`
+            text:`VERIFY YOUR OTP ${text}`,
+            attachments: [
+                {
+                    filename: "qr.png", // You can change the filename as needed
+                    path: "qr.png" // Path to the image
+                }
+            ]
           })
-
-
     } catch (error) {
          console.log(error);
     }
